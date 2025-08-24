@@ -25,7 +25,7 @@ const Main = ({componentId}: {componentId: string}) => {
     });
   };
   const renderElement = ({id, name}: {id: number; name: string}) => (
-    <Block id={id} name={name} onPress={handleElementPress} />
+    <Block key={id} id={id} name={name} onPress={handleElementPress} />
   );
 
   const handleGoBack = () => {

@@ -5,12 +5,7 @@
 
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
 
-
-#import <React/RCTComponentViewFactory.h>
-#import "RCTThirdPartyComponentsProvider.h"
-
-
-@interface AppDelegate () <RCTComponentViewFactoryComponentProvider> {}
+@interface AppDelegate () <RCTBridgeDelegate>
 @end
 
 @implementation AppDelegate
@@ -20,35 +15,10 @@
   self.moduleName = @"AwesomeProject";
   self.dependencyProvider = [RCTAppDependencyProvider new];
 
-  [RCTComponentViewFactory currentComponentViewFactory].thirdPartyFabricComponentsProvider = self;
   BOOL result = [super application:application didFinishLaunchingWithOptions:launchOptions];
 
   return result;
 }
-
-- (BOOL)newArchEnabled {
-  return TRUE;
-}
-
-- (BOOL)fabricEnabled {
-  return TRUE;
-}
-
-//// Override this method to ensure component registration happens
-//- (NSArray<RCTComponentViewProtocol> *)thirdPartyComponentDescriptorProviders
-//{
-//  NSLog(@"AppDelegate: thirdPartyComponentDescriptorProviders called");
-//  
-//  NSMutableArray<RCTComponentDescriptorProvider> *providers = [[NSMutableArray alloc] init];
-//  
-//  // Add our custom component descriptors
-//  [providers addObject:[RCTWebView componentDescriptorProvider]];
-//  [providers addObject:[RCTSecureView componentDescriptorProvider]];
-//  
-//  NSLog(@"AppDelegate: Providing %lu component descriptors", (unsigned long)[providers count]);
-//  
-//  return providers;
-//}
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {

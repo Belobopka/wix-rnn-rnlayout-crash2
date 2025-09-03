@@ -8,11 +8,11 @@
 import React, {useState} from 'react';
 import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
-import {Navigation} from 'react-native-navigation';
-import {generateElements} from './Main.tsx';
+import {generateElements} from '../helpers/generateElements.ts';
 import Block from '../components/Block.tsx';
 
-let localScreenState = generateElements();
+// used for testing elements persist between screen nav
+// let localScreenState = generateElements();
 
 function App({componentId}: {componentId: string}): React.JSX.Element {
   const [elementsState, setElementsState] = useState<
@@ -22,7 +22,7 @@ function App({componentId}: {componentId: string}): React.JSX.Element {
   const handleElementPress = (id: number) => {
     setElementsState(oldElements => {
       const newState = oldElements.filter(({id: oldId}) => oldId !== id);
-      localScreenState = [...newState];
+      // localScreenState = [...newState];
       return newState;
     });
   };
@@ -34,21 +34,10 @@ function App({componentId}: {componentId: string}): React.JSX.Element {
     setElementsState(oldElements => {
       const newState = [
         ...oldElements,
-        {id: oldElements.length, name: `test${oldElements.length}`},
+        {id: oldElements.length + 1, name: `test${oldElements.length}`},
       ];
-      localScreenState = [...newState];
+      // localScreenState = [...newState];
       return newState;
-    });
-  };
-
-  const handlePressNext = () => {
-    Navigation.push(componentId, {
-      component: {
-        name: 'com.myApp.Main',
-        options: {
-          topBar: {visible: false},
-        },
-      },
     });
   };
 
@@ -56,11 +45,6 @@ function App({componentId}: {componentId: string}): React.JSX.Element {
     <SafeAreaView style={styles.webview}>
       <View>{elementsState.map(renderElement)}</View>
       <View>
-        <Pressable
-          style={{width: 100, height: 100, backgroundColor: 'red'}}
-          onPress={handlePressNext}>
-          <Text>Go Next</Text>
-        </Pressable>
         <Pressable
           style={{width: 100, height: 100, backgroundColor: 'green'}}
           onPress={handleAdd}>

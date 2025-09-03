@@ -2905,7 +2905,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.3.1
     react-native: 0.77.2
-    react-native-navigation: 8.3.0
+    react-native-navigation: 8.3.1
     react-native-reanimated: 3.16.7
     react-test-renderer: 18.3.1
     setimmediate: ^1.0.5
@@ -7841,9 +7841,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-navigation@npm:8.3.0":
-  version: 8.3.0
-  resolution: "react-native-navigation@npm:8.3.0"
+"react-native-navigation@npm:8.3.1":
+  version: 8.3.1
+  resolution: "react-native-navigation@npm:8.3.1"
   dependencies:
     hoist-non-react-statics: 3.x.x
     lodash: 4.17.x
@@ -7862,7 +7862,7 @@ __metadata:
       optional: true
   bin:
     rnn-link: autolink/postlink/run.js
-  checksum: fe44f41e8502d8be94abbde11ecd3975b97f8dac6fec4e913a5cd5060ad45aedc54e517dacf52323fe72988a459624243a4d8366dcc36d23a927848532ea94bd
+  checksum: 880fa090971004e23ac2f24cfa24f9dca6c84175777ce83dc289e9993cc2ad5714de257d9e512e71c763ee05ce1b2be1908562d31e9a2edcc0e3201c82a9bd82
   languageName: node
   linkType: hard
 

@@ -1,17 +1,12 @@
 import {Pressable, SafeAreaView, View, Text} from 'react-native';
-import {Navigation} from 'react-native-navigation';
 import React, {useState} from 'react';
 import Block from '../components/Block.tsx';
+import {generateElements} from '../helpers/generateElements.ts';
 
 export const FADE_IN_DURATION = 150;
 export const LAYOUT_DURATION = 200;
 
-export const generateElements = (length = 5) =>
-  new Array(length)
-    .fill(0)
-    .map((_, index) => ({id: index + 1, name: `test${index}`}));
-
-let localScreenState = generateElements();
+// let localScreenState = generateElements();
 
 const Main = ({componentId}: {componentId: string}) => {
   const [elementsState, setElementsState] = useState<
@@ -20,7 +15,7 @@ const Main = ({componentId}: {componentId: string}) => {
   const handleElementPress = (id: number) => {
     setElementsState(oldElements => {
       const newState = oldElements.filter(({id: oldId}) => oldId !== id);
-      localScreenState = [...newState];
+      // localScreenState = [...newState];
       return newState;
     });
   };
@@ -28,17 +23,13 @@ const Main = ({componentId}: {componentId: string}) => {
     <Block key={id} id={id} name={name} onPress={handleElementPress} />
   );
 
-  const handleGoBack = () => {
-    Navigation.pop(componentId);
-  };
-
   const handleAdd = () => {
     setElementsState(oldElements => {
       const newState = [
         ...oldElements,
-        {id: oldElements.length, name: `test${oldElements.length}`},
+        {id: oldElements.length + 1, name: `test${oldElements.length + 1}`},
       ];
-      localScreenState = [...newState];
+      // localScreenState = [...newState];
       return newState;
     });
   };
@@ -47,11 +38,6 @@ const Main = ({componentId}: {componentId: string}) => {
     <SafeAreaView style={{flex: 1, justifyContent: 'space-between'}}>
       <View>{elementsState.map(renderElement)}</View>
       <View>
-        <Pressable
-          style={{width: 100, height: 100, backgroundColor: 'red'}}
-          onPress={handleGoBack}>
-          <Text>Back</Text>
-        </Pressable>
         <Pressable
           style={{width: 100, height: 100, backgroundColor: 'green'}}
           onPress={handleAdd}>

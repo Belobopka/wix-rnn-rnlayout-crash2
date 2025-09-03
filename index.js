@@ -12,11 +12,52 @@ Navigation.registerComponent('com.myApp.Main', () => Main);
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
-      stack: {
+      bottomTabs: {
+        options: {
+          bottomTabs: {
+            backgroundColor: 'green',
+          },
+        },
+        id: 'BOTTOM_TABS_LAYOUT',
         children: [
           {
-            component: {
-              name: 'com.myApp.App',
+            stack: {
+              id: 'APP_TAB',
+              children: [
+                {
+                  component: {
+                    id: 'com.myApp.App',
+                    name: 'com.myApp.App',
+                  },
+                },
+              ],
+              options: {
+                bottomTab: {
+                  name: 'App',
+                  text: 'APP',
+                  selectedTextColor: 'orange',
+                },
+              },
+            },
+          },
+          {
+            stack: {
+              id: 'MAIN_TAB',
+              children: [
+                {
+                  component: {
+                    id: 'com.myApp.Main',
+                    name: 'com.myApp.Main',
+                  },
+                },
+              ],
+              options: {
+                bottomTab: {
+                  name: 'Main',
+                  text: 'MAIN',
+                  selectedTextColor: 'orange',
+                },
+              },
             },
           },
         ],

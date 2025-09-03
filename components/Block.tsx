@@ -20,7 +20,7 @@ const Block = ({
   <Animated.View
     key={id}
     style={{width: 50, height: 50, backgroundColor: 'orange'}}
-    // entering={FadeIn.delay(FADE_IN_DURATION)}
+    entering={FadeIn.delay(FADE_IN_DURATION)}
     exiting={FadeOut.delay(FADE_IN_DURATION)}
     layout={Layout.duration(LAYOUT_DURATION).easing(Easing.cubic)}>
     <Pressable

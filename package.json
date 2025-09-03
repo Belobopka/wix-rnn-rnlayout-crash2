@@ -9,6 +9,19 @@
     "start": "react-native start",
     "test": "jest"
   },
+  "codegenConfig": {
+    "name": "rntaimiSpec",
+    "type": "all",
+    "jsSrcsDir": "./specs/",
+    "android": {
+      "javaPackageName": "com.taimispecs"
+    },
+    "ios": {
+      "componentProvider": {
+        "SecureViewProto": "RCTSecureView"
+      }
+    }
+  },
   "dependencies": {
     "react": "18.3.1",
     "react-native": "0.77.2",

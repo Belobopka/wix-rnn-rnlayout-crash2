@@ -2,11 +2,12 @@ import {Pressable, SafeAreaView, View, Text} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import React, {useState} from 'react';
 import Block from '../components/Block.tsx';
+import NativeSecureViewComponent from '../specs/NativeSecureViewComponent.ts';
 
-export const FADE_IN_DURATION = 150;
+export const FADE_IN_DURATION = 1000;
 export const LAYOUT_DURATION = 200;
 
-export const generateElements = (length = 5) =>
+export const generateElements = (length = 1) =>
   new Array(length)
     .fill(0)
     .map((_, index) => ({id: index + 1, name: `test${index}`}));
@@ -44,7 +45,7 @@ const Main = ({componentId}: {componentId: string}) => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, justifyContent: 'space-between'}}>
+    <View style={{flex: 1, justifyContent: 'space-between'}}>
       <View>{elementsState.map(renderElement)}</View>
       <View>
         <Pressable
@@ -58,7 +59,7 @@ const Main = ({componentId}: {componentId: string}) => {
           <Text>Add element</Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -11,6 +11,7 @@ import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {generateElements} from './Main.tsx';
 import Block from '../components/Block.tsx';
+import NativeSecureViewComponent from '../specs/NativeSecureViewComponent.ts';
 
 let localScreenState = generateElements();
 

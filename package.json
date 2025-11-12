@@ -9,6 +9,19 @@
     "start": "react-native start",
     "test": "jest"
   },
+  "codegenConfig": {
+    "name": "AppSpec",
+    "type": "all",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.audiostatus"
+    },
+    "ios": {
+      "modulesProvider": {
+        "NativeAudioStatus": "RCTNativeAudioStatus"
+      }
+    }
+  },
   "dependencies": {
     "react": "18.3.1",
     "react-native": "0.77.2",

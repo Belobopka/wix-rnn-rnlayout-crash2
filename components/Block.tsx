@@ -22,7 +22,8 @@ const Block = ({
     style={{width: 50, height: 50, backgroundColor: 'orange'}}
     entering={FadeIn.delay(FADE_IN_DURATION)}
     exiting={FadeOut.delay(FADE_IN_DURATION)}
-    layout={Layout.duration(LAYOUT_DURATION).easing(Easing.cubic)}>
+    layout={Layout.duration(LAYOUT_DURATION).easing(Easing.cubic)}
+  >
     <Pressable
       style={{width: '100%', height: '100%'}}
       onPress={() => onPress(id)}>

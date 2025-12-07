@@ -3,8 +3,6 @@
 #import <React/RCTBundleURLProvider.h>
 #import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
 
-#import <ReactNativeNavigation/ReactNativeNavigation.h>
-
 @interface AppDelegate () <RCTBridgeDelegate>
 @end
 
@@ -12,8 +10,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.moduleName = @"AwesomeProject";
-  self.dependencyProvider = [RCTAppDependencyProvider new];
+  // self.moduleName = @"AwesomeProject";
+  // self.dependencyProvider = [RCTAppDependencyProvider new];
 
   BOOL result = [super application:application didFinishLaunchingWithOptions:launchOptions];
 

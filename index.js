@@ -52,6 +52,9 @@ Navigation.events().registerAppLaunchedListener(() => {
                 },
               ],
               options: {
+                topBar: {
+                  visible: false,
+                },
                 bottomTab: {
                   name: 'Main',
                   text: 'MAIN',

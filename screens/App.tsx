@@ -6,10 +6,19 @@
  */
 
 import React, {useState} from 'react';
-import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  ActionSheetIOS,
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import {generateElements} from '../helpers/generateElements.ts';
 import Block from '../components/Block.tsx';
+import {Navigation} from 'react-native-navigation';
 
 // used for testing elements persist between screen nav
 // let localScreenState = generateElements();
@@ -41,6 +50,21 @@ function App({componentId}: {componentId: string}): React.JSX.Element {
     });
   };
 
+  const handleShowActionSheet = () => {
+    if (Platform.OS === 'android') return;
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        //title: 'Select an option',
+        // message: 'This is a message',
+        options: ['Cancel', 'Option 2', 'Option 3'],
+        // cancelButtonIndex: 0,
+      },
+      selectedIndex => {
+        console.log(selectedIndex);
+      },
+    );
+  };
+
   return (
     <SafeAreaView style={styles.webview}>
       <View>{elementsState.map(renderElement)}</View>
@@ -49,6 +73,11 @@ function App({componentId}: {componentId: string}): React.JSX.Element {
           style={{width: 100, height: 100, backgroundColor: 'green'}}
           onPress={handleAdd}>
           <Text>Add element</Text>
+        </Pressable>
+        <Pressable
+          style={{width: 100, height: 100, backgroundColor: 'red'}}
+          onPress={handleShowActionSheet}>
+          <Text>Show toast</Text>
         </Pressable>
       </View>
     </SafeAreaView>

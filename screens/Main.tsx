@@ -35,7 +35,7 @@ const Main = ({componentId}: {componentId: string}) => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, justifyContent: 'space-between'}}>
+    <SafeAreaView style={{flex: 1, justifyContent: 'space-between', backgroundColor: 'black',}}>
       <View>{elementsState.map(renderElement)}</View>
       <View>
         <Pressable
